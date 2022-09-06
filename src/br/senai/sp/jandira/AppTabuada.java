@@ -1,8 +1,7 @@
 package br.senai.sp.jandira;
 
 import br.senai.sp.jandira.gui.FrameTabuada;
-
-//import br.senai.sp.jandira.model.Tabuada;
+import br.senai.sp.jandira.model.Tabuada;
 
 public class AppTabuada {
 
@@ -27,7 +26,7 @@ public class AppTabuada {
 		
 		FrameTabuada tela = new FrameTabuada();
 		tela.titulo = "Tabuada";
-		tela.largura = 400;
+		tela.largura = 415;
 		tela.altura = 570;
 		tela.criarTela();
 	}
