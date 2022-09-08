@@ -1,16 +1,25 @@
 package br.senai.sp.jandira.gui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ListResourceBundle;
+import java.util.Vector;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.Scrollable;
 
 import br.senai.sp.jandira.model.Tabuada;
 
@@ -37,7 +46,7 @@ public class FrameTabuada {
 		Container painel = tela.getContentPane();
 		painel.setBackground(corDeFundoDaTela);
 		
-		
+		//ImageIcon icon = new ImageIcon();
 		
 		// Componentes do container
 		JLabel labelTabuada = new JLabel();
@@ -49,6 +58,7 @@ public class FrameTabuada {
 		JLabel labelLegenda = new JLabel();
 		labelLegenda.setText("Calcule a tabuada que desejar!");
 		labelLegenda.setFont(new Font("Calibri", Font.BOLD, 12));
+		labelLegenda.setBackground(new Color(0, 128, 255));
 		labelLegenda.setBounds(70, 13, 300, 80);
 		
 		JLabel labelMultiplicando = new JLabel();
@@ -81,7 +91,7 @@ public class FrameTabuada {
 		buttonCalcularTabuada.setBounds(20, 210, 160, 35);
 		buttonCalcularTabuada.setFont(new Font("Calibri", Font.BOLD, 14));
 		buttonCalcularTabuada.setForeground(new Color(255, 255, 255));
-		buttonCalcularTabuada.setBackground(new Color(0, 204, 0));
+		buttonCalcularTabuada.setBackground(new Color(0, 151, 75));
 		
 		//Criar o botão limpar
 		JButton buttonLimparTabuada = new JButton();
@@ -97,8 +107,24 @@ public class FrameTabuada {
 		labelResultado.setForeground(new Color(0,0,0));
 		labelResultado.setBounds(20, 250, 190, 30);
 		
+		//JTextField textResultado = new JTextField();
+		//textResultado.setBounds(20, 280, 280, 230);
+		//textResultado.setBackground(new Color(191, 233, 255));
 		
-		//JList<Vector>
+		JList listResultadoTabuada = new JList();
+		listResultadoTabuada.setBounds(20, 280, 280, 230);
+		listResultadoTabuada.setBackground(new Color(191, 233, 255));
+		
+		
+		tela.getContentPane().setLayout(new FlowLayout());  
+		JTextArea area = new JTextArea(0,0);
+		JScrollPane rolagemTabuada = new JScrollPane(area);
+		rolagemTabuada.setPreferredSize(new Dimension(280, 280));
+		rolagemTabuada.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);  
+		
+		tela.getContentPane().add(rolagemTabuada);  
+		
+	
 		
 		buttonCalcularTabuada.addActionListener(new ActionListener() {
 			
@@ -110,17 +136,20 @@ public class FrameTabuada {
 				tabuada.minimoMultiplicador = Integer.parseInt(textMinimoMultiplicador.getText());
 				tabuada.maximoMultiplicador = Integer.parseInt(textMaximoMultiplicador.getText());
 				
-				labelResultado.setText(tabuada.getTabuada());
-				
-				
-				
-				
-				
-				
-				
+				listResultadoTabuada.setListData(tabuada.getTabuada());		
 				
 			}
 		});
+		
+		
+		//buttonLimparTabuada.addActionListener(new ActionListener() {
+			
+			//@Override
+			//public void actionPerformed(ActionEvent e) {
+				//buttonLimparTabuada.setText(null);
+				//listResultadoTabuada.clearSelection();  
+			//}
+		//});
 		
 		
 		// Adicionar componetes no painel
@@ -135,6 +164,10 @@ public class FrameTabuada {
 		painel.add(buttonCalcularTabuada);
 		painel.add(buttonLimparTabuada);
 		painel.add(labelResultado);
+		painel.add(listResultadoTabuada);
+		painel.add(rolagemTabuada);
+		painel.add(area);
+		
 		
 		tela.setVisible(true);
 	}

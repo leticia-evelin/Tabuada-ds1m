@@ -9,7 +9,7 @@ public class Tabuada {
 	public String[] getTabuada() {
 
 		int tamanho = maximoMultiplicador - minimoMultiplicador + 1;
-		String tabuada[] = new String[tamanho];
+		String[] tabuada = new String[tamanho];
 
 		// Calcular Tabuada
 		int contador = 0;
@@ -23,9 +23,11 @@ public class Tabuada {
 
 			contador++;
 			minimoMultiplicador++;
+			
 		}
 
 		return tabuada;
-
+	 
+	
 	}
 }

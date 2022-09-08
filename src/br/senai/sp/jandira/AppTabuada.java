@@ -26,7 +26,7 @@ public class AppTabuada {
 		
 		FrameTabuada tela = new FrameTabuada();
 		tela.titulo = "Tabuada";
-		tela.largura = 415;
+		tela.largura = 350;
 		tela.altura = 570;
 		tela.criarTela();
 	}
