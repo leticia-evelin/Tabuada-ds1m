@@ -5,7 +5,7 @@ import br.senai.sp.jandira.model.Tabuada;
 
 public class AppTabuada {
 
-	public static void main(String[] args) {
+	public static void main(String args[]) {
 		
 		//Tabuada tabuada = new Tabuada();
 		//tabuada.multiplicando = 6897;
