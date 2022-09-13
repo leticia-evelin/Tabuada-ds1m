@@ -32,7 +32,7 @@ public class FrameTabuada {
 	public Font fonteDosLabels;
 	public Color corDoTextoDoBotao;
 	
-	
+
 	public void criarTela() {
 		
 		JFrame tela = new JFrame();
@@ -110,7 +110,7 @@ public class FrameTabuada {
 		
 		JList listResultadoTabuada = new JList();
 		//listResultadoTabuada.setBounds(20, 280, 280, 230); Dentro do scroll
-		listResultadoTabuada.setBackground(new Color(191, 233, 255));
+		listResultadoTabuada.setBackground(new Color(204, 230, 255));
 		
 		
 		
@@ -130,19 +130,21 @@ public class FrameTabuada {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				
 				Tabuada tabuada = new Tabuada();
+				//if (textMultiplicando.getText().isEmpty() || textMinimoMultiplicador.getText().isEmpty() || textMaximoMultiplicador.getText().isEmpty());
+				//JOptionPane.showMessageDialog(null, "Digite um número", "ERRO", JOptionPane.ERROR_MESSAGE);{
+					
+				//}
+			//}else{
+			tabuada.multiplicando = Integer.parseInt(textMultiplicando.getText());
+			tabuada.minimoMultiplicador = Integer.parseInt(textMinimoMultiplicador.getText());
+			tabuada.maximoMultiplicador = Integer.parseInt(textMaximoMultiplicador.getText());
+			
+			listResultadoTabuada.setListData(tabuada.getTabuada());		
+		//}
 				
-				if (textMultiplicando.getText().isEmpty() || textMinimoMultiplicador.getText().isEmpty() || textMaximoMultiplicador.getText().isEmpty());
-				JOptionPane.showMessageDialog(null, "Digite um número", "ERRO", JOptionPane.ERROR_MESSAGE);
+			
 				
-			}else{
-				
-				Tabuada.multiplicando = Integer.parseInt(textMultiplicando.getText());
-				Tabuada.minimoMultiplicador = Integer.parseInt(textMinimoMultiplicador.getText());
-				Tabuada.maximoMultiplicador = Integer.parseInt(textMaximoMultiplicador.getText());
-				
-				listResultadoTabuada.setListData(tabuada.getTabuada());		
 				
 			}
 		});
@@ -232,11 +234,14 @@ public class FrameTabuada {
 			public void actionPerformed(ActionEvent e) {
 				textMultiplicando.setText(null);
 				textMinimoMultiplicador.setText(null);
-				textMaximoMultiplicador.setText(null);	
-				listResultadoTabuada.removeAll();
+				textMaximoMultiplicador.setText(null);
+				textMultiplicando.requestFocus();
+				
+				String[] resultado = {};
+				listResultadoTabuada.setListData(resultado);
 				
 			}
-		});
+			});
 		
 		
 		
@@ -252,7 +257,6 @@ public class FrameTabuada {
 		painel.add(buttonCalcularTabuada);
 		painel.add(buttonLimparTabuada);
 		painel.add(labelResultado);
-		//painel.add(listResultadoTabuada);
 		painel.add(scroll);
 		
 		
@@ -263,11 +267,12 @@ public class FrameTabuada {
 		tela.setVisible(true);
 	}
 
-
+}
 	
 
 
 	
 		
-	}
+	
+
 

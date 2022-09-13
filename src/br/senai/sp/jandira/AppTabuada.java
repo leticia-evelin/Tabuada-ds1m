@@ -1,5 +1,7 @@
 package br.senai.sp.jandira;
 
+import java.awt.Color;
+
 import br.senai.sp.jandira.gui.FrameTabuada;
 import br.senai.sp.jandira.model.Tabuada;
 
@@ -28,7 +30,8 @@ public class AppTabuada {
 		tela.titulo = "Tabuada";
 		tela.largura = 350;
 		tela.altura = 570;
+		tela.corDeFundoDaTela = new Color(255, 225, 225);
 		tela.criarTela();
 	}
-
+//255 225 225 226 198 255
 }
