@@ -130,22 +130,25 @@ public class FrameTabuada {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				Tabuada tabuada = new Tabuada();
-				//if (textMultiplicando.getText().isEmpty() || textMinimoMultiplicador.getText().isEmpty() || textMaximoMultiplicador.getText().isEmpty());
-				//JOptionPane.showMessageDialog(null, "Digite um número", "ERRO", JOptionPane.ERROR_MESSAGE);{
+				if (textMultiplicando.getText().isEmpty() || textMinimoMultiplicador.getText().isEmpty() ||
+						textMaximoMultiplicador.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Preencha todos os campos!", "ERRO", JOptionPane.ERROR_MESSAGE);
+				} else {
+					Tabuada tabuada = new Tabuada();			
+					tabuada.multiplicando = Integer.parseInt(textMultiplicando.getText());
+					tabuada.minimoMultiplicador = Integer.parseInt(textMinimoMultiplicador.getText());
+					tabuada.maximoMultiplicador = Integer.parseInt(textMaximoMultiplicador.getText());
+				
+					if (tabuada.maximoMultiplicador <= tabuada.minimoMultiplicador) {
+						JOptionPane.showMessageDialog(null, "Insira um número menor do que o máximo multiplicador", 
+								"ERRO", JOptionPane.ERROR_MESSAGE);
+						
+					} else {
+						listResultadoTabuada.setListData(tabuada.getTabuada());		
+					}
+				
+				}
 					
-				//}
-			//}else{
-			tabuada.multiplicando = Integer.parseInt(textMultiplicando.getText());
-			tabuada.minimoMultiplicador = Integer.parseInt(textMinimoMultiplicador.getText());
-			tabuada.maximoMultiplicador = Integer.parseInt(textMaximoMultiplicador.getText());
-			
-			listResultadoTabuada.setListData(tabuada.getTabuada());		
-		//}
-				
-			
-				
-				
 			}
 		});
 		
